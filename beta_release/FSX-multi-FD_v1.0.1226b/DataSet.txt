@@ -1,0 +1,19 @@
+Flight Director Data Sets																
+The following data sets are used when outputting information to the shift registers that enable each digit on the corresponding displays.
+The end of the data set contains the data to be inputted to the 7-segment display driver.																
+																
+Display Set #1																
+Data		     |   Course Display     |	  Speed Display      |	  Heading Display    |	Display Driver Data (4-bit)  |					
+Place Value	1	2	4	8	16	32	64	128	256	512	1024	2048	4096	8192	16384	32768
+Bit Number	1	2	3	4	5	6	7	8	9	10	11	12	13	14	15	16
+																
+Display Set #2																
+Data	     |  DP   |  	 Altitude Display	    |		 Vert Speed Display	     |	Display Driver Data (4-bit)   |				
+Place Value	1	2	4	8	16	32	64	128	256	512	1024	2048	4096	8192	16384	32768
+Bit Number	1	2	3	4	5	6	7	8	9	10	11	12	13	14	15	16
+																
+LED Indicator																
+Data		FD	N1	A/T	SPD	VNAV	LVL	HDG	LNAV	VOR	APP	ALT	VIS	CMD A	CWS A	CMD B	CWS B
+Place Value	1	2	4	8	16	32	64	128	256	512	1024	2048	4096	8192	16384	32768
+Bit Number	1	2	3	4	5	6	7	8	9	10	11	12	13	14	15	16
+																
