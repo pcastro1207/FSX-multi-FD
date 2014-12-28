@@ -12,10 +12,23 @@
 class FSX
 {
   public:
-	FSX(int clock, int latch, int data);
-	void segOut(unsigned int dig, unsigned int val, unsigned int mplx);
+	FSX();
+	char getChar();
+        void EQUALS();
+        void LESSTHAN();
+        void QUESTION();
   private:
-	int _clock;
+	
+};
+
+class Display
+{
+  public:
+        Display();
+        void begin(int pin);
+        //void segOut(unsigned int dig, unsigned int val, unsigned int mplx);
+  private:
+  int _clock;
 	int _latch;
 	int _data;
 	unsigned int _dig;

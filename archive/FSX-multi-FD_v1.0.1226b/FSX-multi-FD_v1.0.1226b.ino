@@ -1,9 +1,9 @@
 /***************************************************************/
-/* FSX - Flight Director           Version: 1.0.1226           */
+/* FSX - Flight Director           Version: 1.0.1226b          */
 /* By: Patrick Castro              Date: 12-26-14              */
 /***************************************************************/
 
-#include <FSX.h>
+#include "FSX.h"
 
 /* Define Variables */
 byte debug = 0; //set to 1 for debug
@@ -11,9 +11,7 @@ byte ledpin = 13; //LED onboard Arduino
 int CodeIn; //used on all serial reads
 
 //define variables for shift register outputs
-int clock1 = 2, latch1 = 3, data1 = 4; //display set #1 (crs, spd & heading)
-int clock2 = 5, latch2 = 6, data2 = 7; //display set #2 (alt & vert spd)
-int clock3 = 8, latch3 = 9, data3 = 10; //LED indicators
+int register1 = 2, register2 = 5, register3 = 8;
 
 //define variables for course hold display
 unsigned int dis1_1 = 2, dis1_2 = 4, dis1_3 = 8;
@@ -39,29 +37,21 @@ byte hunds_5, tens_5, ones_5, tenth_5, hundth_5;
 int wait = 0, multiplex = 700;
 /* End of Variable Definitions */
 
-FSX regOne(clock1, latch1, data1);
-//FSX regTwo(clock2, latch2, data2);
-//FSX regThree(clock3, latch3, data3);
+//initialize instance of class FSX
+//FSX main();
+FSX reg1(register1);
+//FSX reg2();
+//FSX reg3();
+
+
 
 //define Arduino pins as INPUT or OUTPUT
 void setup() //this function only runs once on device initialization
 {
-  /*
-  //output pins for shift register (display set #1)
-  pinMode(clock1, OUTPUT);
-  pinMode(latch1, OUTPUT);
-  pinMode(data1, OUTPUT);
+  reg1.begin(); //output pins for shift register (display set #1)
+  //reg2.begin(register2); //output pins for shift register (display set #2)
+  //reg3.begin(register3); //output pins for shift register (LED indicators)
   
-  //output pins for shift register (display set #2)
-  pinMode(clock2, OUTPUT);
-  pinMode(latch2, OUTPUT);
-  pinMode(data2, OUTPUT);
-  
-  //output pins for shift register (LED indicators)
-  pinMode(clock3, OUTPUT);
-  pinMode(latch3, OUTPUT);
-  pinMode(data3, OUTPUT);
-  */
   pinMode(ledpin, OUTPUT); //sets pin13 on Arduino as output to LED
   
   Serial.begin(115200); //serial baud rate (configure COM port settings on PC)
@@ -70,7 +60,12 @@ void setup() //this function only runs once on device initialization
 
 
 void loop() {
-  
+  //Only fetch data from serial buffer if data is recieved
+  if (Serial.available())
+  {
+   //CodeIn = main.getChar();
+   
+  }
   
 } //end of main loop
 
